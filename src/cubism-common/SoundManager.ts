@@ -38,7 +38,7 @@ export class SoundManager {
      */
     static add(file: string, onFinish?: () => void, onError?: (e: Error) => void): HTMLAudioElement {
         const audio = new Audio();
-        audio.crossOrigin = 'use-credentials'
+        audio.crossOrigin = 'Anonymous'
         audio.src = file;
         audio.volume = this._volume;
         audio.preload = 'auto';

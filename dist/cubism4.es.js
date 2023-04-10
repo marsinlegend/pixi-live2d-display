@@ -4070,7 +4070,7 @@ class SoundManager {
   }
   static add(file, onFinish, onError) {
     const audio = new Audio();
-    audio.crossOrigin = "use-credentials";
+    audio.crossOrigin = "Anonymous";
     audio.src = file;
     audio.volume = this._volume;
     audio.preload = "auto";
