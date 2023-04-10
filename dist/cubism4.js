@@ -4070,7 +4070,7 @@ var __async = (__this, __arguments, generator) => {
     }
     static add(file, onFinish, onError) {
       const audio = new Audio();
-      audio.crossOrigin = "anonymous";
+      audio.crossOrigin = "use-credentials";
       audio.src = file;
       audio.volume = this._volume;
       audio.preload = "auto";
