@@ -42,6 +42,7 @@ export class SoundManager {
         audio.volume = this._volume;
         audio.preload = 'auto';
         audio.autoplay = true;
+        audio.crossOrigin = 'anonymous'
 
         audio.addEventListener('ended', () => {
             this.dispose(audio);
@@ -112,12 +113,12 @@ export class SoundManager {
      */
     static analyze(analyser: AnalyserNode): number {
 
-        if(analyser != undefined){
+        if (analyser != undefined) {
             let pcmData = new Float32Array(analyser.fftSize);
             let sumSquares = 0.0;
             analyser.getFloatTimeDomainData(pcmData);
 
-            for (const amplitude of pcmData) { sumSquares += amplitude*amplitude; }
+            for (const amplitude of pcmData) { sumSquares += amplitude * amplitude; }
             return parseFloat(Math.sqrt((sumSquares / pcmData.length) * 20).toFixed(1));
         } else {
             return parseFloat(Math.random().toFixed(1));
@@ -143,7 +144,7 @@ export class SoundManager {
         for (let i = this.contexts.length - 1; i >= 0; i--) {
             this.contexts[i]!.close()
         }
-        
+
         for (let i = this.audios.length - 1; i >= 0; i--) {
             this.dispose(this.audios[i]!);
         }
