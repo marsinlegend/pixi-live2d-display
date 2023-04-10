@@ -38,11 +38,11 @@ export class SoundManager {
      */
     static add(file: string, onFinish?: () => void, onError?: (e: Error) => void): HTMLAudioElement {
         const audio = new Audio(file);
-
+        audio.crossOrigin = 'anonymous'
         audio.volume = this._volume;
         audio.preload = 'auto';
         audio.autoplay = true;
-        audio.crossOrigin = 'anonymous'
+
 
         audio.addEventListener('ended', () => {
             this.dispose(audio);

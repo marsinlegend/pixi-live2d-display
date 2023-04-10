@@ -4070,10 +4070,10 @@ class SoundManager {
   }
   static add(file, onFinish, onError) {
     const audio = new Audio(file);
+    audio.crossOrigin = "anonymous";
     audio.volume = this._volume;
     audio.preload = "auto";
     audio.autoplay = true;
-    audio.crossOrigin = "anonymous";
     audio.addEventListener("ended", () => {
       this.dispose(audio);
       onFinish == null ? void 0 : onFinish();
