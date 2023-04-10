@@ -4069,8 +4069,9 @@ class SoundManager {
     this.audios.forEach((audio) => audio.volume = this._volume);
   }
   static add(file, onFinish, onError) {
-    const audio = new Audio(file);
+    const audio = new Audio();
     audio.crossOrigin = "anonymous";
+    audio.src = file;
     audio.volume = this._volume;
     audio.preload = "auto";
     audio.autoplay = true;
